@@ -19,9 +19,16 @@ body {
     color: #636363;
 }
 
-p {
-    margin: 0;
+ul {
+    list-style-type: none;
+    margin: 25px 0 0;
     padding: 0;
+    font-size: 20px;
+    line-height: 34px;
+}
+
+li:hover {
+    cursor: pointer;
 }
 
 h1 {
@@ -43,12 +50,42 @@ h2 {
     padding: 0;
 }
 
+h2:hover {
+    color: #1993D5;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* Navigation */
 
 .nav {
     padding: 15px;
     background-color: #1993D5;
     grid-area: 1 / 1 / 4 / 2;
+    color: #FFFEFE;
+    font-weight: 700;
+}
+
+.title1 {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 300;
+}
+
+.title2 {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.nav .material-icons-round {
+    font-size: 24px;
+    line-height: 24px;
+    transform: translateY(4px);
+    margin-right: 5px;
+}
+
+li:hover .material-icons-round {
+    color: #F1C40F;
 }
 
 /* Top bar */
@@ -84,14 +121,30 @@ h2 {
     background-color: #FFFEFE;
     box-shadow: 3px 3px 3px rgba(198, 203, 210, 0.5);
     border-radius: 10px;
+    overflow: hidden;
     display: grid;
     grid-template-rows: auto auto auto;
     grid-auto-rows: auto;
+    align-self: start;
+}
+
+.announcement-container :last-child, .trend-container :last-child {
+    border: 0;
 }
 
 .announcement, .trend {
     padding: 20px;
     border-bottom: 1px solid #E2E8F0;
+}
+
+.announcement:hover, .trend:hover {
+    background-color: #F8F9FB;
+    cursor: pointer;
+}
+
+.announcement:hover h2, .trend:hover h2 {
+    color: #1993D5;
+    text-decoration: underline;
 }
 
 .trend {
