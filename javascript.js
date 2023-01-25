@@ -34,9 +34,9 @@ function checkFade() {
     }
 
     if (projectsContainer.scrollTop == (projectsContainer.scrollHeight - projectsContainer.clientHeight)) {
-        projectsDiv.style.margin = "15px 0 0 15px";
+        projectsDiv.style.margin = "25px 0 0 25px";
     } else {
-        projectsDiv.style.margin = "15px 0 15px 15px";
+        projectsDiv.style.margin = "25px 0 25px 25px";
     }
 
     fadeTop.style.opacity = topOpacity;
