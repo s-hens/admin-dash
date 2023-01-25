@@ -43,6 +43,9 @@ function checkFade() {
 
     fadeTop.style.opacity = topOpacity;
     fadeBottom.style.opacity = bottomOpacity;
+
+    fadeTop.style["z-index"] = topOpacity - 1;
+    fadeBottom.style["z-index"] = bottomOpacity - 1;
 }
 
 // Heart icons
