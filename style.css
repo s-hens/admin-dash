@@ -149,6 +149,10 @@ h2 {
     cursor: pointer;
 }
 
+.faved {
+    color: #D51935;
+}
+
 .material-icons-round.md-24.set:hover {
     color: #F0B429;
     cursor: pointer;
