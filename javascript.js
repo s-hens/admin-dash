@@ -8,26 +8,30 @@ window.addEventListener("resize", checkFade);
 window.addEventListener("scroll", checkFade);
 
 function checkFade() {
-    if (projectsContainer.scrollTop > 0) {
-        fadeTop.style.cssText = `
-            display: block;
-            position: fixed;
-            top: ${projectsContainer.offsetTop}px;
-            left: ${projectsContainer.offsetLeft}px;
-            width: ${projectsContainer.offsetWidth}px;
-            `;
+    fadeTop.style.cssText = `
+        display: block;
+        position: fixed;
+        top: ${projectsContainer.offsetTop}px;
+        left: ${projectsContainer.offsetLeft}px;
+        width: ${projectsContainer.offsetWidth}px;`;
+    fadeBottom.style.cssText = `
+        display: block;
+        position: fixed;
+        top: ${projectsContainer.offsetTop + projectsContainer.offsetHeight - 44}px;
+        left: ${projectsContainer.offsetLeft}px;
+        width: ${projectsContainer.offsetWidth}px;`;
+
+    let topOpacity;
+    let bottomOpacity;
+
+    if ((projectsContainer.scrollHeight - projectsContainer.clientHeight) != 0) {
+        topOpacity = projectsContainer.scrollTop / (projectsContainer.scrollHeight - projectsContainer.clientHeight);
+        bottomOpacity = 1 - topOpacity;
     } else {
-        fadeTop.style.display = "none";
+        topOpacity = 0;
+        bottomOpacity = 0;
     }
-    if (projectsContainer.scrollTop < (projectsContainer.scrollHeight - projectsContainer.clientHeight)) {
-        fadeBottom.style.cssText = `
-            display: block;
-            position: fixed;
-            top: ${projectsContainer.offsetTop + projectsContainer.offsetHeight - 30}px;
-            left: ${projectsContainer.offsetLeft}px;
-            width: ${projectsContainer.offsetWidth}px;
-            `;
-    } else {
-        fadeBottom.style.display = "none";
-    }
+
+    fadeTop.style.opacity = topOpacity;
+    fadeBottom.style.opacity = bottomOpacity;
 }
