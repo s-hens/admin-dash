@@ -12,8 +12,8 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 5fr 5fr;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 10fr;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     color: #636363;
@@ -50,18 +50,12 @@ h2 {
     padding: 0;
 }
 
-h2:hover {
-    color: #1993D5;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 /* Navigation */
 
 .nav {
-    padding: 15px;
+    padding: 20px;
     background-color: #1993D5;
-    grid-area: 1 / 1 / 4 / 2;
+    grid-area: 1 / 1 / 3 / 2;
     color: #FFFEFE;
     font-weight: 700;
 }
@@ -93,17 +87,46 @@ li:hover .material-icons-round {
 .upper {
     padding: 15px;
     background-color: #FFFEFE;
-    grid-area: 1 / 2 / 2 / 4;
+    grid-area: 1 / 2 / 2 / 3;
     display: grid;
     grid-template-rows: 1fr 1fr;
     box-shadow: 3px 3px 3px rgba(198, 203, 210, 0.5);
+    z-index: 2;
+}
+
+/* Scrolling section */
+
+.scrollable {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #E2E8F0; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1993D5; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1681BA; 
 }
 
 /* Announcements & Trending */
 
 .announcements {
     margin: 25px 25px 25px 0;
-    grid-area: 2 / 3 / 3 / 4;
+    grid-area: 1 / 2 / 2 / 3;
     display: grid;
     grid-template-rows: 18px 1fr;
     gap: 15px;
@@ -111,7 +134,7 @@ li:hover .material-icons-round {
 
 .trends {
     margin: 0 25px 25px 0;
-    grid-area: 3 / 3 / 4 / 4;
+    grid-area: 2 / 2 / 3 / 3;
     display: grid;
     grid-template-rows: 18px 1fr;
     gap: 15px;
@@ -166,7 +189,8 @@ li:hover .material-icons-round {
 
 .projects {
     margin: 25px 0 25px 25px;
-    grid-area: 2 / 2 / 4 / 3;
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
     display: grid;
     grid-template-rows: 18px 1fr;
     gap: 15px;
@@ -179,10 +203,6 @@ li:hover .material-icons-round {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     padding: 0 25px 25px 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -ms-overflow-style: none;
-    scrollbar-width: none; 
 }
 
 .project {
@@ -198,6 +218,12 @@ li:hover .material-icons-round {
 .stripe {
     background-color: #F0B429;
     grid-area: 1 / 1 / 3 / 2;
+}
+
+.projname:hover {
+    color: #1993D5;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .description {
@@ -235,24 +261,4 @@ li:hover .material-icons-round {
 .material-icons-round.md-24.share:hover {
     color: #1993D5;
     cursor: pointer;
-}
-
-/* Fancy scrolling */
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-.fade-top {
-    display: none;
-    background: linear-gradient(0deg, rgba(226,232,240,0) 0%, rgba(226,232,240,1) 100%);
-    height: 50px;
-    z-index: 2;
-}
-
-.fade-bottom {
-    display: none;
-    background: linear-gradient(180deg, rgba(226,232,240,0) 0%, rgba(226,232,240,1) 100%);
-    height: 50px;
-    z-index: 2;
 }
