@@ -1,4 +1,5 @@
 const projectsContainer = document.querySelector(".projects-container");
+const projectsDiv = document.querySelector(".projects");
 const fadeTop = document.querySelector(".fade-top");
 const fadeBottom = document.querySelector(".fade-bottom");
 
@@ -17,7 +18,7 @@ function checkFade() {
     fadeBottom.style.cssText = `
         display: block;
         position: fixed;
-        top: ${projectsContainer.offsetTop + projectsContainer.offsetHeight - 44}px;
+        top: ${projectsContainer.offsetTop + projectsContainer.offsetHeight - 50}px;
         left: ${projectsContainer.offsetLeft}px;
         width: ${projectsContainer.offsetWidth}px;`;
 
@@ -30,6 +31,12 @@ function checkFade() {
     } else {
         topOpacity = 0;
         bottomOpacity = 0;
+    }
+
+    if (projectsContainer.scrollTop == (projectsContainer.scrollHeight - projectsContainer.clientHeight)) {
+        projectsDiv.style.margin = "15px 0 0 15px";
+    } else {
+        projectsDiv.style.margin = "15px 0 15px 15px";
     }
 
     fadeTop.style.opacity = topOpacity;
